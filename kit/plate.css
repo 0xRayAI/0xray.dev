@@ -39,7 +39,11 @@ img { max-width: 100%; }
   transform-origin: top left;
   transform: scale(calc(100vw / 1280px));
 }
-.plate-slot { margin-top: var(--space-hero-gap); }
+.plate-slot {
+  /* The console art opens with a dark lip. Pull that lip over the hero
+     so the suit rests on the metal rail. */
+  margin-top: calc(var(--space-hero-gap) - 100vw * 116 / 1280);
+}
 
 .hero {
   position: relative;
@@ -50,7 +54,11 @@ img { max-width: 100%; }
   background:
     repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 3px),
     radial-gradient(ellipse at 50% 42%, #3a4048 0%, #12151a 62%, #000 84%);
-  box-shadow: inset 0 0 0 12px #07080c, inset 0 0 80px rgba(0,0,0,0.45);
+  box-shadow:
+    inset 12px 0 0 #07080c,
+    inset -12px 0 0 #07080c,
+    inset 0 12px 0 #07080c,
+    inset 0 0 80px rgba(0,0,0,0.45);
 }
 .hero-logo {
   position: absolute;
@@ -102,9 +110,9 @@ img { max-width: 100%; }
 .hero-suit {
   position: absolute;
   right: 24px;
-  top: 80px;
+  bottom: 0;
   width: 540px;
-  height: 560px;
+  height: 640px;
   margin: 0;
   pointer-events: none;
 }
@@ -550,7 +558,7 @@ main {
 }
 
 @media (max-width: 800px) {
-  :root { --space-hero-gap: 20px; }
+  :root { --space-hero-gap: 0px; }
   .install { flex-direction: column; align-items: flex-start; }
   .copy { align-self: stretch; }
   .install code { font-size: 24px; }
