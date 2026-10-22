@@ -62,7 +62,7 @@
   --font-stamp: "Chakra Petch", sans-serif;
   --font-body: "Barlow Condensed", "Arial Narrow", sans-serif;
 
-  --space-hero-gap: 32px;
+  --space-hero-gap: 0px;
   --space-page: 28px;
   --engrave: 1px 1px 0 var(--shadow);
   --glow-soft: 0 0 12px var(--foot);
